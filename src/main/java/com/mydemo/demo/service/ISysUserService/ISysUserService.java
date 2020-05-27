@@ -27,9 +27,6 @@ public class ISysUserService implements SysUserService{
     public List<SysUser> selectAll() {
         List<SysUser> list = new ArrayList<>();
         list = sysUserDao.selectAll();
-        if (list == null) {
-            list = Collections.EMPTY_LIST;
-        }
-        return sysUserDao.selectAll();
+        return list;
     }
 }
