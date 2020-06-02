@@ -1,79 +1,79 @@
-#ÏîÄ¿Ïà¹ØÅäÖÃ
+#é¡¹ç›®ç›¸å…³é…ç½®
 myDemo:
   version: 2.2.2.2
-# ¿ª·¢»·¾³ÅäÖÃ
+# å¼€å‘ç¯å¢ƒé…ç½®
 server:
-  # ·şÎñÆ÷µÄHTTP¶Ë¿Ú£¬Ä¬ÈÏÎª8080
+  # æœåŠ¡å™¨çš„HTTPç«¯å£ï¼Œé»˜è®¤ä¸º8080
   port: 8090
   servlet:
-    # Ó¦ÓÃµÄ·ÃÎÊÂ·¾¶
+    # åº”ç”¨çš„è®¿é—®è·¯å¾„
     context-path: /mydemo
   tomcat:
-    # tomcatµÄURI±àÂë
+    # tomcatçš„URIç¼–ç 
     uri-encoding: UTF-8
-    # tomcat×î´óÏß³ÌÊı£¬Ä¬ÈÏÎª200
+    # tomcatæœ€å¤§çº¿ç¨‹æ•°ï¼Œé»˜è®¤ä¸º200
     max-threads: 800
-    # TomcatÆô¶¯³õÊ¼»¯µÄÏß³ÌÊı£¬Ä¬ÈÏÖµ25
+    # Tomcatå¯åŠ¨åˆå§‹åŒ–çš„çº¿ç¨‹æ•°ï¼Œé»˜è®¤å€¼25
     min-spare-threads: 30
 
-# ÈÕÖ¾ÅäÖÃ
+# æ—¥å¿—é…ç½®
 logging:
   level:
-    #¿ØÖÆÌ¨ÏÔÊ¾logÀàĞÍÓÉINFO¸ÄÎªDEBUG£¨ÖÎÀí¸Ä±äµÄÊÇcom.mydemoÏÂµÄ£©
+    #æ§åˆ¶å°æ˜¾ç¤ºlogç±»å‹ç”±INFOæ”¹ä¸ºDEBUGï¼ˆæ²»ç†æ”¹å˜çš„æ˜¯com.mydemoä¸‹çš„ï¼‰
     com.mydemo: debug
-    #Í¬ÉÏ
+    #åŒä¸Š
     org.springframework: warn
 
-# SpringÅäÖÃ
+# Springé…ç½®
 spring:
   banner:
     location: banner.txt
   profiles:
     active: local
-  # ÎÄ¼şÉÏ´«
+  # æ–‡ä»¶ä¸Šä¼ 
   servlet:
     multipart:
-      # µ¥¸öÎÄ¼ş´óĞ¡
+      # å•ä¸ªæ–‡ä»¶å¤§å°
       max-file-size:  10MB
-      # ÉèÖÃ×ÜÉÏ´«µÄÎÄ¼ş´óĞ¡
+      # è®¾ç½®æ€»ä¸Šä¼ çš„æ–‡ä»¶å¤§å°
       max-request-size:  20MB
-  # ·şÎñÄ£¿é
+  # æœåŠ¡æ¨¡å—
   devtools:
     restart:
-      # ÈÈ²¿Êğ¿ª¹Ø
+      # çƒ­éƒ¨ç½²å¼€å…³
       enabled: true
-  # redis ÅäÖÃ
+  # redis é…ç½®
   redis:
     database: 1
-    # µØÖ·
+    # åœ°å€
     host: localhost
-    # ¶Ë¿Ú£¬Ä¬ÈÏÎª6379
+    # ç«¯å£ï¼Œé»˜è®¤ä¸º6379
     port: 6379
-    # ÃÜÂë
+    # å¯†ç 
     password:
-    # Á¬½Ó³¬Ê±Ê±¼ä
+    # è¿æ¥è¶…æ—¶æ—¶é—´
     timeout: 10s
     lettuce:
       pool:
-        # Á¬½Ó³ØÖĞµÄ×îĞ¡¿ÕÏĞÁ¬½Ó
+        # è¿æ¥æ± ä¸­çš„æœ€å°ç©ºé—²è¿æ¥
         min-idle: 0
-        # Á¬½Ó³ØÖĞµÄ×î´ó¿ÕÏĞÁ¬½Ó
+        # è¿æ¥æ± ä¸­çš„æœ€å¤§ç©ºé—²è¿æ¥
         max-idle: 8
-        # Á¬½Ó³ØµÄ×î´óÊı¾İ¿âÁ¬½ÓÊı
+        # è¿æ¥æ± çš„æœ€å¤§æ•°æ®åº“è¿æ¥æ•°
         max-active: 8
-        # #Á¬½Ó³Ø×î´ó×èÈûµÈ´ıÊ±¼ä£¨Ê¹ÓÃ¸ºÖµ±íÊ¾Ã»ÓĞÏŞÖÆ£©
+        # #è¿æ¥æ± æœ€å¤§é˜»å¡ç­‰å¾…æ—¶é—´ï¼ˆä½¿ç”¨è´Ÿå€¼è¡¨ç¤ºæ²¡æœ‰é™åˆ¶ï¼‰
         max-wait: -1ms
 
-# MyBatisÅäÖÃ
+# MyBatisé…ç½®
 mybatis:
-  # ËÑË÷Ö¸¶¨°ü±ğÃû
+  # æœç´¢æŒ‡å®šåŒ…åˆ«å
   typeAliasesPackage: com.mydemo.demo.domain
-  # ÅäÖÃmapperµÄÉ¨Ãè£¬ÕÒµ½ËùÓĞµÄmapper.xmlÓ³ÉäÎÄ¼ş
+  # é…ç½®mapperçš„æ‰«æï¼Œæ‰¾åˆ°æ‰€æœ‰çš„mapper.xmlæ˜ å°„æ–‡ä»¶
   mapperLocations: classpath:mapper/*.xml
-  # ¼ÓÔØÈ«¾ÖµÄÅäÖÃÎÄ¼ş
+  # åŠ è½½å…¨å±€çš„é…ç½®æ–‡ä»¶
   configLocation: classpath:mybatis-config.xml
 
-# PageHelper·ÖÒ³²å¼ş
+# PageHelperåˆ†é¡µæ’ä»¶
 pagehelper:
   helperDialect: mysql
   reasonable: true
