@@ -26,6 +26,8 @@ logging:
 
 # Spring配置
 spring:
+  banner:
+    location: banner.txt
   profiles:
     active: local
   # 文件上传
