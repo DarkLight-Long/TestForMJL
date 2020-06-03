@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -27,6 +26,7 @@ public class ISysUserService implements SysUserService{
     public List<SysUser> selectAll() {
         List<SysUser> list = new ArrayList<>();
         list = sysUserDao.selectAll();
+        logger.debug(list.toString());
         return list;
     }
 }

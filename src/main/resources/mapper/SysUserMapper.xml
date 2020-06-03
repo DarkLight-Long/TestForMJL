@@ -5,5 +5,14 @@
     <select id="selectAll" resultType="com.mydemo.demo.domain.SysUser">
         select * from sys_user;
     </select>
+
+    <insert id="addUser"  parameterType="com.mydemo.demo.domain.SysUser">
+            insert into sys_user(id,user_name,password,account)
+            values
+            <foreach collection="asd" item="item"  separator="," >
+            (#{item.id},#{item.userName},"456",#{item.account})
+            </foreach>
+    </insert>
+
 	
 </mapper>
