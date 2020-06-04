@@ -1,0 +1,20 @@
+# 数据源配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydemo?characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&serverTimezone=PRC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+flowable:
+  async-executor-activate: false
+mybatis:
+  mapper-locations: mapper/*/*.xml, classpath*:mapper/*.xml, classpath:/META-INF/modeler-mybatis-mappings/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 参数配置
+  configuration-properties:
+    # 配置流程引擎参数，详情可见 DatabaseConfiguration
+    blobType: BLOB
+    boolValue: TRUE
+    # 不要设置库名，否则会出现双库名 bug
+    prefix: ''
