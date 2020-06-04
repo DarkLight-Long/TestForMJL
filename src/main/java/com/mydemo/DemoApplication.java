@@ -1,9 +1,27 @@
 package com.mydemo;
 
+import com.mydemo.flowable.config.AppDispatcherServletConfiguration;
+import com.mydemo.flowable.config.ApplicationConfiguration;
+import com.mydemo.flowable.config.DatabaseAutoConfiguration;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@SpringBootApplication
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+
+@Import({
+        ApplicationConfiguration.class,
+        AppDispatcherServletConfiguration.class,
+        DatabaseAutoConfiguration.class
+})
+@Slf4j
+@SpringBootApplication(
+        exclude = {SecurityAutoConfiguration.class}
+)
+@ComponentScan(basePackages = {"com.mydemo.*"})
+@MapperScan("com.mydemo.*.dao")
 public class DemoApplication {
 
     public static void main(String[] args) {
