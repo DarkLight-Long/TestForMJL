@@ -36,6 +36,13 @@ flowableModule.config(['$httpProvider', function($httpProvider) {
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};
     }
+    //请求token添加
+
+    var token = JSON.parse(window.localStorage.getItem("Access-token")).value
+    var expire = JSON.parse(window.localStorage.getItem("Access-token")).expire
+    if (token && expire) {
+        $httpProvider.defaults.headers.common ={"Accexx-token":token }
+    }
 
     $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache, no-store, must-revalidate';
     $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
