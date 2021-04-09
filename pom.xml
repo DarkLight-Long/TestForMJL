@@ -149,6 +149,67 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+<!--                到本地docker可以使用(需要手动push到仓库)，可以只留dockerfile位置即可-->
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>1.2.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>build-image</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <imageName>test/${project.artifactId}</imageName>-->
+<!--                    <imageTags>-->
+<!--                        <imageTag>test0.1</imageTag>-->
+<!--                    </imageTags>-->
+<!--                    dockerfile位置-->
+<!--                    <dockerDirectory>${project.basedir}</dockerDirectory>-->
+<!--                    <dockerHost>http://localhost:1234</dockerHost>-->
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            dockerfile maven控件-->
+<!--            push提示权限不足-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <username>854590394</username>
+                    <password>l854590394j+++</password>
+                    <repository>854590394/testfor_lmj</repository>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                    <tag>testPush</tag>
+<!--                    <dockerfile>${project.basedir}</dockerfile>-->
+
+                </configuration>
+            </plugin>
+
         </plugins>
 
 
