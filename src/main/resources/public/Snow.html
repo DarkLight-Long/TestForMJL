@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="snow.css">
+    <link rel="icon" href="./w10.png">
 </head>
 <body>
-<!--    <div class="snow"></div>-->
-
+    <div class="black"></div>
+    <img src="./w10.png">
+    <div class="img"></div>
 <script type="text/javascript" src="snow.js"></script>
+<script type="text/javascript" src="lineLoading.js"></script>
+<script type="text/javascript" src="circleLoading.js"></script>
 <script type="text/javascript">
-    let snowList = []
-    for (let i = 0; i<= 200; i++) {
-        let snow = new Snow();
-        snow.render();
-        snowList.push(snow);
+    // 下雪
+    {
+        let snowList = []
+        for (let i = 0; i<= 200; i++) {
+            let snow = new Snow();
+            snow.render();
+            snowList.push(snow);
+        }
+        moveSnow();
     }
-    moveSnow();
+    // 转圈加载动画
+    {
+        let circleLoading = new CircleLoading();
+        circleLoading.render()
+        movePink(circleLoading)
+    }
+    // 点直线型加载
+    {
+        moveBlack()
+    }
+    // 原型链
+    {
+        let men = new Men();
+        let women = new Women();
+        console.log(men.sex)
+        console.log(women.sex)
+    }
+
+    function movePink(el) {
+        setInterval(()=>el.move(), 1000)
+    }
+
+    function moveBlack() {
+        setInterval(() =>blackMove(), 1000)
+    }
 
     function moveSnow() {
         window.requestAnimationFrame(() => {

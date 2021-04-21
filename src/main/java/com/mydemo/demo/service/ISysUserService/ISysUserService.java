@@ -26,7 +26,8 @@ public class ISysUserService implements SysUserService{
     @Override
     public List<SysUser> selectAll() {
         List<SysUser> list = new ArrayList<>();
-        list = sysUserDao.selectAll();
+        String account = "abc";
+        list = sysUserDao.selectAll(account);
         return list;
     }
 }

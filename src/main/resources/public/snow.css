@@ -8,3 +8,8 @@
 body {
     background: lightskyblue;
 }
+.img {
+    background-image: url("./w10.png");
+    width: 200px;
+    height: 200px;
+}

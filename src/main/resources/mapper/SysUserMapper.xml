@@ -3,7 +3,16 @@
 <mapper namespace="com.mydemo.demo.dao.SysUserDao">
 
     <select id="selectAll" resultType="com.mydemo.demo.domain.SysUser">
-        select * from sys_user;
+        select * from sys_user where 1 = 1
+        <if test="account == 'abc'.toString()">
+            and account = 1
+        </if>
+        <if test="account == '2'.toString()">
+            and account = #{account}
+        </if>
+        <if test="account == '3'.toString()">
+            and account = #{account}
+        </if>
     </select>
 	
 </mapper>
