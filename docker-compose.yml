@@ -1,0 +1,19 @@
+#https://www.jianshu.com/p/2217cfed29d7
+
+version: '2.2'
+services:
+  mydemo:
+    container_name: mydemo # 否则名字不是你想的mydemo
+    image: 854590394/testfor_lmj:testPush
+    ports:
+      - "8090:8090"
+    pid: "host"  #解决容器内pid为1的问题,与当前主机共用pid
+#    depends_on:
+#      - redis
+#      - mysql
+#  redis:
+#    image: redis
+#  mysql:
+#    image: mysql
+
+
