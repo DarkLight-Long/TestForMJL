@@ -13,22 +13,22 @@ COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
 
-#http://www.dockerinfo.net/dockerfile%e4%bb%8b%e7%bb%8d
-# 官方
-# 基础镜像
-FROM openjdk:8-jdk-alpine
-# 端口
-EXPOSE 5900
-# 环境变量
-ENV port 5900
-# 复制文件到配容器内，此处以本文件为根目录(可以为url)，目的目录为镜像内目录， 与copy功能相同
-ADD /target/demo.jar /app.jar
-# 复制文件(本地文件)到配容器内，此处以本文件为根目录，目的目录为镜像内目录  用于复制本地文件(比add好)
-COPY /target/demo.jar /app.jar
-# 创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据  即，文件保存位置
-VOLUME /data
-# 指定运行容器的用户名或uid
-USER daemon
-# 指令工作目录
-WORKDIR /a
+# #http://www.dockerinfo.net/dockerfile%e4%bb%8b%e7%bb%8d
+# # 官方
+# # 基础镜像
+# FROM openjdk:8-jdk-alpine
+# # 端口
+# EXPOSE 5900
+# # 环境变量
+# ENV port 5900
+# # 复制文件到配容器内，此处以本文件为根目录(可以为url)，目的目录为镜像内目录， 与copy功能相同
+# ADD /target/demo.jar /app.jar
+# # 复制文件(本地文件)到配容器内，此处以本文件为根目录，目的目录为镜像内目录  用于复制本地文件(比add好)
+# COPY /target/demo.jar /app.jar
+# # 创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据  即，文件保存位置
+# VOLUME /data
+# # 指定运行容器的用户名或uid
+# USER daemon
+# # 指令工作目录
+# WORKDIR /a
 

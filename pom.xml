@@ -182,7 +182,6 @@
 <!--            </plugin>-->
 
 <!--            dockerfile maven控件-->
-<!--            push提示权限不足-->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
@@ -199,7 +198,7 @@
                 </executions>
                 <configuration>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <repository>854590394/testfor_lmj/${project.artifactId}</repository>
+                    <repository>854590394/testfor_lmj</repository>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
