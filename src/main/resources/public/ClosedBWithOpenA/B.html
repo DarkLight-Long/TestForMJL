@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>B</title>
+	</head>
+	<body>
+		<h1>B</h1>
+		<button onclick="sentA()">A</button>
+
+		<script type="text/javascript">
+			window.name ="B";
+			
+			window.onbeforeunload = function() {
+				window.open("A.html#close", "A")
+				return '确定离开此页面？'
+			}
+		</script>
+	</body>
+</html>

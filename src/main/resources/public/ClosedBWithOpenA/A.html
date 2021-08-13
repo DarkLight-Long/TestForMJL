@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>A</title>
+	</head>
+	<body>
+		<h1>A</h1>
+		<button type="button" onclick="openB()">B</button>
+
+		<script type="text/javascript">
+			window.name = "A"
+
+			function openB() {
+				window.open("B.html", "B")
+			}
+
+			window.addEventListener("hashchange", function() {
+				// alert(window.location.hash)
+				console.log(window.location.hash);
+			})
+
+		</script>
+	</body>
+</html>
