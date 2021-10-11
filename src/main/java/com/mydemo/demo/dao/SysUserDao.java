@@ -12,4 +12,6 @@ import java.util.List;
 public interface SysUserDao {
     public List<SysUser> selectAll(@Param("account") String account);
 
+    void insert(SysUser sysUser);
+
 }

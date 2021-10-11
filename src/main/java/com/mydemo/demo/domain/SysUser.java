@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Repository;
 
 @Data
-@Repository
 public class SysUser {
     @Id
     private String id;
