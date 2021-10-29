@@ -19,7 +19,7 @@ server:
 # 日志配置
 logging:
   level:
-    #控制台显示log类型由INFO改为DEBUG（治理改变的是com.mydemo下的）
+    #控制台显示log类型由INFO改为DEBUG（这里改变的是com.mydemo下的）
     com.mydemo: debug
     #同上
     org.springframework: warn
@@ -73,9 +73,9 @@ mybatis:
   # 加载全局的配置文件
   configLocation: classpath:mybatis-config.xml
 
-# PageHelper分页插件
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
+## PageHelper分页插件
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql

@@ -91,12 +91,12 @@
             <version>${mybatis.spring.boot.starter.version}</version>
         </dependency>
 
-        <!-- pagehelper 分页插件 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>${pagehelper.spring.boot.starter.version}</version>
-        </dependency>
+<!--        &lt;!&ndash; pagehelper 分页插件 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.pagehelper</groupId>-->
+<!--            <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--            <version>${pagehelper.spring.boot.starter.version}</version>-->
+<!--        </dependency>-->
 
         <!--阿里数据库连接池 -->
         <dependency>
@@ -146,6 +146,21 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>test</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <artifactId>dockerfile-maven-plugin</artifactId>
+<!--                            ....-->
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
     <build>
 
 <!--        <resources>-->
