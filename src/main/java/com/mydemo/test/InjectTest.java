@@ -5,6 +5,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
+/**
+ * 反射
+ */
 public class InjectTest {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
@@ -24,7 +27,7 @@ public class InjectTest {
 
         Method method = clazz.getDeclaredMethod("out");
 //        method.setAccessible(true);   //如果为私有则需要带上
-        method.invoke(obj);
+        method.invoke(obj); // 划重点，动态代理就用的这里
     }
 
     static class Test {
