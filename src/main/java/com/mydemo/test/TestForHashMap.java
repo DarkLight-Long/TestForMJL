@@ -1,15 +1,17 @@
 package com.mydemo.test;
 
-import com.sun.media.sound.SF2LayerRegion;
 import org.junit.Test;
 
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class TestForHashMap {
 
+    /**
+     * name: hash环；
+     */
     @Test
-    public void test() {
+    public void testForHashRing() {
         String[] serverIps = new String[] {"101.231.123.11","11.1.112.234","123.112.11.123","232.12.11.22"};
         SortedMap<Integer, String> hashServerMap = new TreeMap<>();
         for (String ip : serverIps) {
@@ -21,8 +23,17 @@ public class TestForHashMap {
             SortedMap<Integer, String> severMap = hashServerMap.tailMap(Math.abs(ip.hashCode()));
             if (severMap.isEmpty()) {
                 Integer firstkey = hashServerMap.firstKey();
+                System.out.println(firstkey);
             }
         }
+    }
+
+    @Test
+    public void testHashMap() {
+        Map<String, String> map = new HashMap();
+        map.put("A", "A");
+        // 同步的map， 某种程度上说相当于hashtable
+        Map<String, String> strMap = Collections.synchronizedMap(new HashMap<>());
     }
 
 }

@@ -79,3 +79,5 @@ mybatis:
 #  reasonable: true
 #  supportMethodsArguments: true
 #  params: count=countSql
+project:
+  debug: false

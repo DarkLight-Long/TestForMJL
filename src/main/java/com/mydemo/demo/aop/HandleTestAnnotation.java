@@ -1,10 +1,9 @@
 package com.mydemo.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -78,8 +77,20 @@ public class HandleTestAnnotation {
      * @param obj 返回值
      */
     @AfterReturning(pointcut = "pointCutA()", returning = "obj")
-    public void handlePointDA(Object obj) {
+    public void handlePointDA(Object obj) {}
 
+    /**
+     * @param ex 抛出的异常
+     */
+    @AfterThrowing(pointcut = "pointCutA()", throwing = "ex")
+    public void handleAfterThrowEx(Exception ex) {}
+
+    @After("pointCutA()")
+    public void handleAfter() {}
+
+    @Around("pointCutA()")
+    public void handleAround(ProceedingJoinPoint joinPoint) throws Throwable {
+        joinPoint.proceed();
     }
 
 }
