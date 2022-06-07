@@ -1,5 +1,6 @@
 package com.mydemo.test;
 
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.junit.Test;
 
 import java.util.concurrent.*;
@@ -9,7 +10,9 @@ import java.util.concurrent.*;
  */
 public class ThreadPoolTest {
 
-    ExecutorService threadPool = Executors.newFixedThreadPool(2);
+    public static final ExecutorService executorService = Executors.newScheduledThreadPool(1,
+            // 线程命名以及守护线程（守护线程能够在程序停止后自动关闭）
+            new BasicThreadFactory.Builder().namingPattern("name%s").daemon(true).build());
     ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2,10,1000, TimeUnit.MILLISECONDS,new ArrayBlockingQueue<Runnable>(10));
 
     /**
