@@ -1,8 +1,8 @@
-package com.mydemo.demo.service.ImplSysUserService;
+package com.mydemo.demo.service.Impl;
 
 import com.mydemo.demo.dao.SysUserDao;
 import com.mydemo.demo.domain.SysUser;
-import com.mydemo.demo.service.SysUserService;
+import com.mydemo.demo.service.ISysUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +15,9 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class ISysUserService implements SysUserService{
+public class ISysUserServiceImpl implements ISysUserService {
 
-    private final Logger logger = LoggerFactory.getLogger(ISysUserService.class);
+    private final Logger logger = LoggerFactory.getLogger(ISysUserServiceImpl.class);
 
     @Autowired
     private SysUserDao sysUserDao;

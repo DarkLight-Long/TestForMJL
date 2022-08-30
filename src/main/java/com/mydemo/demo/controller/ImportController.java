@@ -4,7 +4,10 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.imports.ExcelImportService;
 import cn.afterturn.easypoi.exception.excel.ExcelImportException;
 import com.mydemo.demo.domain.CourseData;
+import com.mydemo.demo.domain.UploadRequest;
+import com.mydemo.demo.service.IImportService;
 import com.mydemo.utils.ImportUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/import")
 public class ImportController {
+
+    @Autowired
+    private IImportService importService;
 
     @GetMapping("/import")
     @ResponseBody
@@ -37,5 +43,11 @@ public class ImportController {
             throw new ExcelImportException(e.getMessage(), e);
         }
     }
+
+    @PostMapping("/upload")
+    public void uploadFile(UploadRequest request, Integer size) {
+        importService.uploadFile(request, size);
+    }
+
 
 }

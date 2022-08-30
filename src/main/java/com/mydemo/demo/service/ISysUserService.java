@@ -4,6 +4,6 @@ import com.mydemo.demo.domain.SysUser;
 
 import java.util.List;
 
-public interface SysUserService {
+public interface ISysUserService {
     public List<SysUser> selectAll();
 }
