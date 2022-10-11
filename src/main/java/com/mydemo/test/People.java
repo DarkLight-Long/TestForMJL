@@ -1,8 +1,10 @@
 package com.mydemo.test;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
+@Slf4j
 public class People {
 
     public String name;
@@ -25,6 +27,10 @@ public class People {
         People woman = new People();
         woman.sex = "女";
         return woman;
+    }
+
+    public static void main(String[] args) {
+        log.info(String.format("%s 进入应用", "me"));
     }
 
 }

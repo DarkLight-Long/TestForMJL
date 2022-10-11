@@ -56,12 +56,17 @@ public class AutoProxyTest {
         }
     }
 
+    /**
+     * 感觉有问题 20220906
+     * @param args
+     */
     public static void main(String[] args) {
         JDKProxy proxy = new JDKProxy(new UserImpl());
         ClassLoader classLoader = ClassLoaderUtils.getDefaultClassLoader();
         // 实现运行过程中产生的类class输出(可以查看生成的动态代理类的代码)
         // 动态代理生成位置在com.sun.proxy
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        // 第一项是类加载器，第二项是代理的接口，第三项是代理的接口的处理程序
         User user = (User) Proxy.newProxyInstance(classLoader, new Class[]{User.class}, proxy);
         System.out.println(user.job());
         System.out.println(user.job2());

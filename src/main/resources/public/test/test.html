@@ -13,9 +13,34 @@
         /*    color: red;*/
         /*    writing-mode: vertical-lr;  无关只做记录，文字纵向显示(存在兼容问题，需要尝试)，此处用于google */
         /*}*/
+
+        .box {
+            /*display: flex;*/
+        }
+        .check-btn:checked {
+            color: red;
+        }
+        .check-btn:checked+div {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="box">
+        <div class="header">
+            <a>1</a>
+            <a>1</a>
+            <a>1</a>
+            <a>1</a>
+            <label for="check-btn">更多</label>
+            <input id="check-btn" class="check-btn" type="checkbox">
+            <div>2</div>
+        </div>
+
+    </div>
+
 <!--地址自动斜体-->
 <address>
     You can contact author at <a href="http://www.somedomain.com/contact">

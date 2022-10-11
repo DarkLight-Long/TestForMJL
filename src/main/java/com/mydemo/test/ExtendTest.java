@@ -32,6 +32,7 @@ public class ExtendTest {
         public B() {
             System.out.println("init B");
         }
+        @Override
         public void out() {
             System.out.println("B");
         }
@@ -40,12 +41,13 @@ public class ExtendTest {
     public static class C extends B {
         public static String a = "A";
         {
-            this.a = "c";
+            a = "c";
             System.out.println("default C");
         }
         public C() {
             System.out.println("init C");
         }
+        @Override
         public void out() {
             System.out.println("C");
         }

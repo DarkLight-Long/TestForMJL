@@ -9,6 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Arrays;
+import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableTransactionManagement
@@ -34,6 +35,9 @@ public class DemoApplication {
 
         String[] beanNames = applicationContext.getBeanDefinitionNames();
         System.out.println(Arrays.toString(beanNames));
+
+        // 东八
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
     }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 /**
  * 待完善 -> 多数据源/数据库切换有关
  */
-@Configuration
+//@Configuration
 public class DynamicDateSourceRouteConfig extends AbstractRoutingDataSource {
 
 //    {

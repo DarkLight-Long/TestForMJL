@@ -40,6 +40,11 @@ public class UtilsController {
         httpResponse = httpClient.execute(get);
     }
 
+    /**
+     * 后台重定向
+     * @param response
+     * @throws IOException
+     */
     @GetMapping("/redirect")
     public void redirect(HttpServletResponse response) throws IOException {
         // 1 但是会收不到cookie(疑似因为跨域)
