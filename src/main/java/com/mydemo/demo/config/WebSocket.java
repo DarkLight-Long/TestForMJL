@@ -1,5 +1,6 @@
 package com.mydemo.demo.config;
 
+import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +69,7 @@ public class WebSocket {
             System.out.println(this);
 
             sessionPool.put(userId, session);
-            log.info("%s链接成功", userId);
+            log.info(userId + "链接成功");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,26 +81,29 @@ public class WebSocket {
             // 若onOpen验证成功，此处需删除
             webSockets.remove(this);
             sessionPool.remove(userId);
-            log.info("%s断开连接", userId);
-            log.info(reason.getReasonPhrase());
+            log.info(userId + "断开连接");
+            log.info(JSON.toJSONString(reason));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @OnMessage
-    public void onMessage(Session session, @PathParam(value = "userId") String userId, String message) {
+    public void onMessage(Session session, @PathParam(value = "userId") String userId, String message) throws IOException {
         Session ownedSession = sessionPool.get(userId);
         if (session == ownedSession) {
-            System.out.println(userId + ":" + message);
+            log.info(userId + ":" + message);
+
+            pushSingleMessage(session, "hi");
         } else {
-            log.error("消息错误, %s:%s", userId, message);
+            log.error("消息错误:" + userId + ";msg:" + message);
+            ownedSession.close();
         }
     }
 
     @OnError
     public void onError(Session session, @PathParam("userId") String userId, Throwable throwable) {
-        log.error("连接错误, %s:%s", userId, throwable.getMessage());
+        log.error(userId + "连接错误,msg:" + throwable.getMessage());
     }
 
     /**

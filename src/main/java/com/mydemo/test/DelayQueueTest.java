@@ -18,7 +18,7 @@ public class DelayQueueTest {
     public final static int queueMaxSize = 10;
     public static void main(String[] args) {
         Thread thread = new Thread() {
-            @Autowired
+            @Override
             public void run() {
                 addDelayTask();
             }
