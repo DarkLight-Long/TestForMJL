@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 拦截器
  */
-@Slf4j
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     /**
@@ -18,7 +17,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        log.info("prehandle");
+        System.out.println("interceptor preHandle");
         return super.preHandle(request, response, handler);
     }
 
@@ -27,7 +26,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-//        log.info("posthandle");
+        System.out.println("interceptor postHandle");
         super.postHandle(request, response, handler, modelAndView);
     }
 
@@ -36,7 +35,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-//        log.info("afterCompletion");
+        System.out.println("interceptor afterCompletion");
         super.afterCompletion(request, response, handler, ex);
     }
 
@@ -46,7 +45,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        log.info("afterConcurrentHandlingStarted");
+        System.out.println("interceptor afterConcurrentHandlingStarted");
         super.afterConcurrentHandlingStarted(request, response, handler);
     }
 }

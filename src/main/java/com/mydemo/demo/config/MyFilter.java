@@ -15,18 +15,18 @@ import java.io.IOException;
 /**
  * 过滤器
  */
-@Slf4j
 public class MyFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        log.info("myfilter >>>>>>>>>");
+        System.out.println("myFilter filter");
         // 执行下一个过滤器 或 如果是最后一个过滤器，则调用末端资源(内部自动处理)
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println("filter init");
         System.out.println(filterConfig.getInitParameter("initParam"));
         Filter.super.init(filterConfig);
     }
