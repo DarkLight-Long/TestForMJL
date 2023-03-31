@@ -7,28 +7,43 @@
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="account" property="account" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" javaType="date" />
+        <result column="update_time" property="updateTime" javaType="date" />
     </resultMap>
 
-    <select id="selectAll" resultType="com.mydemo.demo.domain.SysUser">
-        select * from sys_user where 1 = 1
-        <if test="account == 'abc'.toString()">
-            and account = 1
-            <!-- xml 不支持 < ,所以-->
-            <!-- 1 CDATA           -->
-            and account <![CDATA[ <= ]]> 3
-            <!-- 2 转义字符           -->
-            and account &lt;= 3
+    <sql id="all">
+        SELECT id, user_name, account, `password`, age, sex, phone, address, create_time, update_time
+        FROM user_info
+    </sql>
 
-        </if>
-        <if test="account == '2'.toString()">
-            and account = #{account}
-        </if>
-        <if test="account == '3'.toString()">
-            and account = #{account}
-        </if>
+    <select id="selectAll" resultType="com.mydemo.demo.domain.SysUser">
+        <include refid="all" />
+        <where>
+            <if test="account == 'abc'.toString()">
+                and account = 1
+                <!-- xml 不支持 < ,所以-->
+                <!-- 1 CDATA           -->
+                and account <![CDATA[ <= ]]> 3
+                <!-- 2 转义字符           -->
+                and account &lt;= 3
+
+            </if>
+            <if test="account == '2'.toString()">
+                and account = #{account}
+            </if>
+            <if test="account == '3'.toString()">
+                and account = #{account}
+            </if>
+        </where>
     </select>
 
     <insert id="insert" parameterType="com.mydemo.demo.domain.SysUser">
-        insert  into  sys_user(user_name,account,password) values (#{userName},#{account},#{password})
+        INSERT INTO mydemo.user_info(user_name, account, password, age, sex, phone, address)
+        VALUES(#{userName},#{account},#{password},#{age},#{sex},#{phone},#{address})
     </insert>
 </mapper>

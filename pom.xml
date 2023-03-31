@@ -139,6 +139,7 @@
             <artifactId>easypoi-annotation</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <!-- RPC方法（远程调用）       -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

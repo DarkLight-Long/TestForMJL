@@ -1,4 +1,4 @@
-package com.mydemo.test;
+package com.mydemo.test.thred;
 
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.junit.Test;

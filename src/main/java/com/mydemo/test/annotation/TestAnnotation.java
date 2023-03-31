@@ -1,4 +1,4 @@
-package com.mydemo.test;
+package com.mydemo.test.annotation;
 
 import org.springframework.core.annotation.AnnotationUtils;
 import java.util.Arrays;

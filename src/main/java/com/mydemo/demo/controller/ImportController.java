@@ -3,13 +3,11 @@ package com.mydemo.demo.controller;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.imports.ExcelImportService;
 import cn.afterturn.easypoi.exception.excel.ExcelImportException;
-import com.mydemo.demo.domain.CourseData;
 import com.mydemo.demo.domain.UploadRequest;
-import com.mydemo.demo.service.IImportService;
+import com.mydemo.demo.service.ImportService;
 import com.mydemo.utils.ImportUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +19,7 @@ import java.util.List;
 public class ImportController {
 
     @Autowired
-    private IImportService importService;
+    private ImportService importService;
 
     @GetMapping("/import")
     @ResponseBody

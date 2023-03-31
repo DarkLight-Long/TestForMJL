@@ -1,4 +1,4 @@
-package com.mydemo.test;
+package com.mydemo.test.socket;
 
 import com.alibaba.fastjson2.JSON;
 

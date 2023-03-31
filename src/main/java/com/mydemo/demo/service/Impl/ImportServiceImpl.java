@@ -1,7 +1,7 @@
 package com.mydemo.demo.service.Impl;
 
 import com.mydemo.demo.domain.UploadRequest;
-import com.mydemo.demo.service.IImportService;
+import com.mydemo.demo.service.ImportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Slf4j
 @Service
-public class IImportServiceImpl implements IImportService {
+public class ImportServiceImpl implements ImportService {
 
     @Override
     public void uploadFile(UploadRequest request, Integer size) {

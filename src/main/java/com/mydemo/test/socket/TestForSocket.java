@@ -1,4 +1,4 @@
-package com.mydemo.test;
+package com.mydemo.test.socket;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -13,7 +13,7 @@
 //public class HandleTestAnnotation {
 //
 //    /**
-//     * @Pointcue 可以相互合并用 && 连接
+//     * @Pointcut 可以相互合并用 && 连接
 //     */
 //    /**
 //     * explain: public * functitonName(..) =>{

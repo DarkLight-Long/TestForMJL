@@ -48,9 +48,11 @@ public class SmallMybatis {
 
     /**
      * 执行插入sql
-     * @param sql
-     * @param <T>
-     * @return
+     * @param clazz 映射类名
+     * @param sql 执行的插入sql
+     * @param generatedKey 主键
+     * @param <T> 映射类名
+     * @return List
      */
     public static <T> List<T> insertSql(Class<T> clazz, String sql, String generatedKey) {
         List<T> list = new ArrayList<>();
@@ -175,7 +177,7 @@ public class SmallMybatis {
      */
     public static String transferColumnNameToSetMethodName(String columnName) {
         String methodName = "set_" + columnName;
-                Matcher matcher = PATTERN.matcher(methodName);
+        Matcher matcher = PATTERN.matcher(methodName);
         StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
             matcher.appendReplacement(sb, matcher.group().replace("_", "").toUpperCase());

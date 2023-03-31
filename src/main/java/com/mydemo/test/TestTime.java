@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * 随机数测试 + 时间测试
+ */
 public class TestTime {
 
     public static void main(String[] args) throws ParseException, InterruptedException {

@@ -26,6 +26,8 @@ logging:
 
 # Spring配置
 spring:
+  application:
+    name: My-Demo
   banner:
     location: banner.txt
   profiles:

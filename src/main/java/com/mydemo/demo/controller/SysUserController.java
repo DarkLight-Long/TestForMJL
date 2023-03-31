@@ -1,7 +1,7 @@
 package com.mydemo.demo.controller;
 
 import com.mydemo.demo.domain.SysUser;
-import com.mydemo.demo.service.ISysUserService;
+import com.mydemo.demo.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Point;
 import org.springframework.data.redis.connection.RedisGeoCommands;
@@ -20,7 +20,7 @@ import java.util.Set;
 public class SysUserController {
 
     @Autowired
-    private ISysUserService ISysUserService;
+    private SysUserService sysUserService;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
@@ -29,7 +29,12 @@ public class SysUserController {
     @PostMapping(value = "/select")
     @ResponseBody
     public List<SysUser> select() {
-        return ISysUserService.selectAll();
+        return sysUserService.selectAll();
+    }
+
+    @PutMapping(value = "/add")
+    public void addUser() {
+        sysUserService.addUser();
     }
 
     @GetMapping(value = "/select")
@@ -72,6 +77,6 @@ public class SysUserController {
             throw new Exception("测试aop切面");
         }
 
-        return ISysUserService.selectAll();
+        return sysUserService.selectAll();
     }
 }
