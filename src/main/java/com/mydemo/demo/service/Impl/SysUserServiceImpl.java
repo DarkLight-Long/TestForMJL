@@ -23,7 +23,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     /**
      * 开启事务的第二种方法，可以为不同事务传播类型设置不同的bean
-     * Todo 为不同事务传播类型设置不同的bea
+     * Todo 为不同事务传播类型设置不同的bean
      */
     @Autowired
     private TransactionTemplate transactionTemplate;

@@ -1,6 +1,8 @@
 package com.mydemo.utils;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 
 /**
@@ -11,15 +13,58 @@ import java.util.Date;
 public class StaticTest {
 
     public static void main(String[] args) {
-        Date date = new Date();
-        date.setMonth(0);
-        int year = date.getYear();
-        while (date.getYear() <= year) {
-            calculateDayNums(date);
-            date.setMonth(date.getMonth() + 1);
-        }
+//        Date date = new Date();
+//        date.setMonth(0);
+//        int year = date.getYear();
+//        while (date.getYear() <= year) {
+//            calculateDayNums(date);
+//            date.setMonth(date.getMonth() + 1);
+//        }
+
+        LocalDate localDate = LocalDate.now();
+        localDate = localDate.withMonth(1);
+//        int year = localDate.getYear();
+//        while (localDate.getYear() <= year) {
+//            calculateDayNums(localDate);
+//            localDate.plusMonths(1);
+//        }
     }
 
+    public static void calculateDayNums(LocalDate localDate) {
+        LocalDate firstDayOfMonth = localDate.withDayOfMonth(1);
+        LocalDate lastDayOfMonth = localDate.with(TemporalAdjusters.lastDayOfMonth());
+
+        int dayNums = (int) lastDayOfMonth.range(ChronoField.DAY_OF_MONTH).getMaximum();
+        int weekNums = dayNums / 7;
+        int otherDays = dayNums % 7;
+
+        int weekendDayNums = weekNums * 2;
+
+        int firstDayWeek = firstDayOfMonth.getDayOfWeek().getValue();
+        int lastDayWeek = lastDayOfMonth.getDayOfWeek().getValue();
+
+        if (otherDays != 0) {
+            if (firstDayWeek <= lastDayWeek) {
+                if (lastDayWeek == 6) {
+                    weekendDayNums += 1;
+                } else if (lastDayWeek == 7) {
+                    weekendDayNums += 2;
+                }
+            } else if (firstDayWeek > lastDayWeek) {
+                if (firstDayWeek == 6) {
+                    weekendDayNums += 2;
+                } else if (lastDayWeek == 7) {
+                    weekendDayNums += 1;
+                }
+            }else if (firstDayWeek == lastDayWeek && (firstDayWeek == 6 || firstDayWeek == 7)) {
+                weekendDayNums += 1;
+            }
+        }
+        System.out.println(localDate.getMonth().getValue() + "月工作日" + (dayNums - weekendDayNums) + "天");
+
+    }
+
+    @Deprecated
     public static void calculateDayNums(Date date) {
         Date firstDayOfMonth = new Date(date.getYear(), date.getMonth(), 1);
         Date lastDayOfMonth = new Date(date.getYear(), date.getMonth() + 1, 0);
